@@ -9,3 +9,5 @@ router.get('/',(req,res,next)=>{
         message : "Connection Established"
     })
 });
+
+module.exports = router;
