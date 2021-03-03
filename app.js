@@ -7,6 +7,7 @@ dotenv.config();
 var url = process.env.MONGOLAB_URI;
 
 const userRoutes = require('./api/routes/users');
+const rootRoutes = require('./api/routes/root');
 
 
 mongoose.connect(url,
@@ -25,6 +26,7 @@ app.use(bodyParser.json());
 
 
 // Routes Requests
+app.use('/',rootRoutes);
 app.use('/users',userRoutes);
 
 app.use((req, res, next)=>
