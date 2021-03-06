@@ -10,8 +10,8 @@ var url = process.env.MONGOLAB_URI;
 
 const userRoutes = require('./api/routes/users');
 const rootRoutes = require('./api/routes/root');
-const ViewRoutes = require('./api/routes/View');
-const ViewapiRoutes = require('./api/routes/Viewapi');
+const ViewRoutes = require('./api/routes/view');
+const ViewapiRoutes = require('./api/routes/viewapi');
 
 
 
