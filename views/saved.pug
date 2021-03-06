@@ -1,0 +1,44 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="utf-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
+    title Save Review
+    link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous")
+  body
+    nav.navbar.navbar-expand-md.navbar-dark.bg-dark.fixed-top
+      a.navbar-brand(href="/view") Cmpe 328 
+      button.navbar-toggler(type="button" data-toggle="collapse" data-target="#main-navbar")
+        span.navbar-toggler-icon
+      #main-navbar.collapse.navbar-collapse
+        ul.navbar-nav.mr-auto
+          li.nav-item.active
+            a.nav-link(href="/view/create") Create User
+          li.nav-item
+            a.nav-link(href="/view/read") Read User
+          li.nav-item
+            a.nav-link(href="/view/update") Update User
+            li.nav-item
+            a.nav-link(href="/view/delete") Delete User
+      
+    main.container(role="main" style="padding: 60px;")
+    .card.text-center
+        .card-header
+            | Create User
+    .card-body    
+    form(action='/viewsapi/create', method='Post')
+        input.form-control(type='hidden' id="surname" name="surname"  value=surname readonly='')
+        input.form-control(type='hidden' id="surname" name="email"  value=name readonly='')
+        input.form-control(type='hidden' id="surname" name="name" value=email readonly='')
+        input.form-control(type='hidden' id="surname" name="id" value=id readonly='')
+        h5.card-title.text-center ID  : #{id}
+        p.card-text.text-center Name : #{name}
+        p.card-text.text-center Surname : #{surname}
+        p.card-text.text-center Email : #{email}
+        button.btn-primary(type ='submit', style ="margin-left:auto;margin-right:auto;display:block;margin-top:2%;margin-bottom:2%") Save 
+  .card-footer.text-muted
+
+
+    script(src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous")
+    script(src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous")

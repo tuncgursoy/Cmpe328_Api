@@ -24,19 +24,29 @@ router.post('/', (req,res,next)=>{
         surname : req.body.surname,
         email : req.body.email
     });
-    tempuser.save().then(result =>{
-        console.log(result); 
-    }).catch(err => console.log(err));
-    res.status(201).json({
-        message : 'This user saved',
-        savedUser : tempuser
-    });
+    if(req.body.name===null||req.body.surname===null||req.body.email===null)
+    {
+        res.status(406).json({
+            Error : 'Please fill every part of the user',
+        });
+    }else{
+
+        
+        tempuser.save().then(result =>{
+            console.log(result); 
+        }).catch(err => console.log(err));
+        res.status(201).json({
+            message : 'This user saved',
+            savedUser : tempuser
+        });
+    }
 });
 
 router.get('/:id',(req,res,next)=>{
     const id = req.params.id;
     user.findById(id).exec().then(doc =>
         {
+            console.log("entered ",id);
             console.log("From Database",doc);
             if(doc)
             {
@@ -48,7 +58,7 @@ router.get('/:id',(req,res,next)=>{
     
         }).catch(err => {
             console.log(err);
-            res.status(500).json({})
+            res.status(500).json({message : "No Valid Entry Found for This ID "})
         });
 });
 

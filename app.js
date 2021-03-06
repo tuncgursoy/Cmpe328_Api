@@ -1,5 +1,7 @@
 const express = require('express'); 
 const app = express(); 
+const path = require('path'); 
+
 const morgan = require('morgan');
 const mongoose = require('mongoose')
 var dotenv = require('dotenv');
@@ -8,6 +10,10 @@ var url = process.env.MONGOLAB_URI;
 
 const userRoutes = require('./api/routes/users');
 const rootRoutes = require('./api/routes/root');
+const ViewRoutes = require('./api/routes/View');
+const ViewapiRoutes = require('./api/routes/Viewapi');
+
+
 
 
 mongoose.connect(url,
@@ -25,9 +31,16 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
 
+app.set('views', path.join(__dirname,'views'));
+app.set('view engine', 'pug'); 
+
+
 // Routes Requests
 app.use('/',rootRoutes);
 app.use('/users',userRoutes);
+app.use('/View',ViewRoutes);
+app.use('/viewsapi',ViewapiRoutes);
+
 
 app.use((req, res, next)=>
 {
