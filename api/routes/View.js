@@ -17,12 +17,12 @@ router.get('/saved',function(req,res)
 });
 router.get('/delete',function(req,res)
 {
-    res.render('saved');
+    res.render('delete');
 });
 
 router.get('/update',function(req,res)
 {
-    res.render('saved');
+    res.render('update');
 });
 
 module.exports = router;
