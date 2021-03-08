@@ -15,11 +15,12 @@ html(lang="en")
           li.nav-item.active
             a.nav-link(href="/view/create") Create User
           li.nav-item
-            a.nav-link(href="#") Read User
+            a.nav-link(href="/viewsapi/read") Read User
           li.nav-item
-            a.nav-link(href="#") Update User
-            li.nav-item
-            a.nav-link(href="#") Delete User
+            a.nav-link(href="/view/update") Update User
+          li.nav-item
+            a.nav-link(href="/view/delete") Delete User
+      
       
     main.container(role="main" style="padding: 60px;") 
      form(action='/viewsapi/tempcreate', method='Post')

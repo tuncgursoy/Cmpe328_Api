@@ -15,7 +15,7 @@ html(lang="en")
           li.nav-item.active
             a.nav-link(href="/view/create") Create User
           li.nav-item
-            a.nav-link(href="/view/read") Read User
+            a.nav-link(href="/viewsapi/read") Read User
           li.nav-item
             a.nav-link(href="/view/update") Update User
             li.nav-item
@@ -28,9 +28,9 @@ html(lang="en")
     .card-body    
     form(action='/viewsapi/create', method='Post')
         input.form-control(type='hidden' id="surname" name="surname"  value=surname readonly='')
-        input.form-control(type='hidden' id="surname" name="email"  value=name readonly='')
-        input.form-control(type='hidden' id="surname" name="name" value=email readonly='')
-        input.form-control(type='hidden' id="surname" name="id" value=id readonly='')
+        input.form-control(type='hidden' id="email" name="email"  value=email readonly='')
+        input.form-control(type='hidden' id="name" name="name" value=name readonly='')
+        input.form-control(type='hidden' id="id" name="id" value=id readonly='')
         h5.card-title.text-center ID  : #{id}
         p.card-text.text-center Name : #{name}
         p.card-text.text-center Surname : #{surname}

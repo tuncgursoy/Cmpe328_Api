@@ -40,7 +40,50 @@ router.post('/create',(req,res,next)=>{
     }).catch(err => console.log(err));
     res.status(201).render('index');
 
-})
+});
+
+router.get('/read',(req, res,next)=>
+{
+    user.find().lean().exec().then(docs =>{
+        var result = {
+            users: [],
+            length: 0
+        }
+        for(var i =0 ;i<docs.length;i++)
+        {
+            result.users[i]= docs[i];
+        }
+        result.length=result.users.length;
+        console.log(result);
+       
+        res.status(200).render('read',result);
+    }).catch(err => {
+        console.log(err); 
+        res.status(500).json({
+            error : err
+        })
+    });
+}); 
+
+const id = req.params.id;
+user.findById(id).exec().then(doc =>
+    {
+        console.log("entered ",id);
+        console.log("From Database",doc);
+        if(doc)
+        {
+            //Yapılacak
+            
+            res.status(200).json(doc);
+        }else
+        {
+            res.status(404).json({message : "No Valid Entry Found for This ID "});
+        }
+
+    }).catch(err => {
+        console.log(err);
+        res.status(500).json({message : "No Valid Entry Found for This ID "})
+    });
 
 
 module.exports = router;

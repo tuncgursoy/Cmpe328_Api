@@ -51,12 +51,13 @@ app.use((req, res, next)=>
         res.header('Access-Control-Allow-Methods', 'PUT, POST, PATCH, DELETE, GET');
         return res.status.json({})
     }
+    next();
 })
 app.use((req, res, next) =>
 {
     const error = new Error('Not Found'); 
     console.status = 404;
-    next(error);
+    next(res.render('404'));
 })
 
 app.use((error,req, res, next) =>
