@@ -65,25 +65,5 @@ router.get('/read',(req, res,next)=>
     });
 }); 
 
-const id = req.params.id;
-user.findById(id).exec().then(doc =>
-    {
-        console.log("entered ",id);
-        console.log("From Database",doc);
-        if(doc)
-        {
-            //Yapılacak
-            
-            res.status(200).json(doc);
-        }else
-        {
-            res.status(404).json({message : "No Valid Entry Found for This ID "});
-        }
-
-    }).catch(err => {
-        console.log(err);
-        res.status(500).json({message : "No Valid Entry Found for This ID "})
-    });
-
 
 module.exports = router;
