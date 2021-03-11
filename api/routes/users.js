@@ -22,7 +22,8 @@ router.post('/', (req,res,next)=>{
         _id: new mongoose.Types.ObjectId(),
         name : req.body.name, 
         surname : req.body.surname,
-        email : req.body.email
+        email : req.body.email,
+        tc: req.body.tc
     });
     if(req.body.name===null||req.body.surname===null||req.body.email===null)
     {

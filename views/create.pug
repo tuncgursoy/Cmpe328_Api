@@ -16,10 +16,7 @@ html(lang="en")
             a.nav-link(href="/view/create") Create User
           li.nav-item
             a.nav-link(href="/viewsapi/read") Read User
-          li.nav-item
-            a.nav-link(href="/view/update") Update User
-          li.nav-item
-            a.nav-link(href="/view/delete") Delete User
+   
       
       
     main.container(role="main" style="padding: 60px;") 
@@ -40,6 +37,8 @@ html(lang="en")
                 .row-md-6
                  .form-group
                     input.form-control(type='email' id="email"  name="email" placeholder='Email Address  *' value='')
+                 .form-group
+                    input.form-control(type='text' maxlength = "11" id="tc"  name="tc" placeholder='T.C  *' value='')
 
                     button.btnSubmit(type='submit' style='margin-left:auto;margin-right:auto;display:block;margin-top:5%;margin-bottom:2%') Submit
 

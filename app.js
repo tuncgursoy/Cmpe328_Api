@@ -57,7 +57,7 @@ app.use((req, res, next) =>
 {
     const error = new Error('Not Found'); 
     console.status = 404;
-    next(res.render('404'));
+    next(res.render('Error',{error:"This Page Is Does Not Exists",status:404}));
 })
 
 app.use((error,req, res, next) =>
