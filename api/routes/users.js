@@ -7,7 +7,6 @@ const user = require('../models/user');
 router.get('/',(req,res,next)=>{
 
     user.find().exec().then(docs =>{
-        console.log(docs);
         res.status(200).json(docs);
     }).catch(err => {
         console.log(err); 
@@ -18,13 +17,26 @@ router.get('/',(req,res,next)=>{
 });
 
 router.post('/', (req,res,next)=>{
-    const tempuser = new user({
-        _id: new mongoose.Types.ObjectId(),
-        name : req.body.name, 
-        surname : req.body.surname,
-        email : req.body.email,
-        tc: req.body.tc
-    });
+    var tempuser ;
+    if(req.body._id===undefined){
+
+        tempuser = new user({
+            _id: new mongoose.Types.ObjectId(),
+            name : req.body.name, 
+            surname : req.body.surname,
+            email : req.body.email,
+            tc: req.body.tc
+        });
+    }else
+    {
+        tempuser = new user({
+            _id: req.body._id,
+            name : req.body.name, 
+            surname : req.body.surname,
+            email : req.body.email,
+            tc: req.body.tc
+        });
+    }
     if(req.body.name===null||req.body.surname===null||req.body.email===null)
     {
         res.status(406).json({
@@ -34,7 +46,6 @@ router.post('/', (req,res,next)=>{
 
         
         tempuser.save().then(result =>{
-            console.log(result); 
         }).catch(err => console.log(err));
         res.status(201).json({
             message : 'This user saved',
@@ -47,8 +58,6 @@ router.get('/:id',(req,res,next)=>{
     const id = req.params.id;
     user.findById(id).exec().then(doc =>
         {
-            console.log("entered ",id);
-            console.log("From Database",doc);
             if(doc)
             {
                 res.status(200).json(doc);
@@ -73,7 +82,6 @@ router.patch('/:id',(req, res, next) =>
     }
     user.update({_id:id},{$set: updateArr}).exec().then(result =>
         {
-            console.log(result);
             res.status(200).json(result);
         }).catch(err =>{
             console.log(err);
@@ -93,7 +101,6 @@ router.put('/:id',(req, res, next) =>
     }
     user.update({_id:id},{$set: updateArr}).exec().then(result =>
         {
-            console.log(result);
             res.status(200).json(result);
         }).catch(err =>{
             console.log(err);
