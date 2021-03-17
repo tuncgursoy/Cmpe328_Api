@@ -82,7 +82,7 @@ router.patch('/:id',(req, res, next) =>
     }
     user.update({_id:id},{$set: updateArr}).exec().then(result =>
         {
-            res.status(200).json(result);
+            res.status(200).json({"result":"user Updated"});
         }).catch(err =>{
             console.log(err);
             res.status(500).json({
@@ -101,7 +101,7 @@ router.put('/:id',(req, res, next) =>
     }
     user.update({_id:id},{$set: updateArr}).exec().then(result =>
         {
-            res.status(200).json(result);
+            res.status(200).json({"result":"user Updated"});
         }).catch(err =>{
             console.log(err);
             res.status(500).json({
@@ -115,7 +115,7 @@ router.delete('/:id',(req, res, next) =>
     const id = req.params.id;
    user.remove({_id:id}).exec().then(result =>
     {
-        res.status(200).json(result);
+        res.status(200).json({"result":"user Deleted"});
     }).catch(err => {
         console.log(err);
         res.status(500).json({
