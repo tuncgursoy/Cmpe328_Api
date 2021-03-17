@@ -1,3 +1,12 @@
+//-----------------------------------------------------
+// Title: users
+// Author: Tunç Gürsoy
+// ID: 64528127274
+// Section: 1
+// Homework: 1
+// Description: Users route operations section 
+//-----------------------------------------------------
+
 const express = require('express'); 
 const router = express.Router();
 const mongoose = require('mongoose');

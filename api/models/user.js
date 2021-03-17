@@ -1,4 +1,12 @@
-//user id, name, surname, email address
+//-----------------------------------------------------
+// Title: User
+// Author: Tunç Gürsoy
+// ID: 64528127274
+// Section: 1
+// Homework: 1
+// Description: user id, name, surname, email address, Validation for the mongoDB 
+//-----------------------------------------------------
+
 const mongoose = require('mongoose');
  
 const userSchema = mongoose.Schema({

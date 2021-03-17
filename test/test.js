@@ -1,3 +1,12 @@
+//-----------------------------------------------------
+// Title: Test
+// Author: Tunç Gürsoy
+// ID: 64528127274
+// Section: 1
+// Homework: 1
+// Description: Unit testing of this application 
+//-----------------------------------------------------
+
 const request = require('supertest');
 const app = require('../app');
 

@@ -1,3 +1,12 @@
+//-----------------------------------------------------
+// Title: app
+// Author: Tunç Gürsoy
+// ID: 64528127274
+// Section: 1
+// Homework: 1
+// Description: Operation class for the server 
+//-----------------------------------------------------
+
 const express = require('express'); 
 const app = express(); 
 const path = require('path'); 
@@ -8,14 +17,13 @@ var dotenv = require('dotenv');
 dotenv.config();
 var url = process.env.MONGOLAB_URI;
 
+//basic routing
 const userRoutes = require('./api/routes/users');
 const rootRoutes = require('./api/routes/root');
 const ViewRoutes = require('./api/routes/view');
 const ViewapiRoutes = require('./api/routes/viewapi');
 
-
-
-
+//connetion to MongoDB
 mongoose.connect(url,
     {
         useNewUrlParser: true,
@@ -41,7 +49,7 @@ app.use('/users',userRoutes);
 app.use('/View',ViewRoutes);
 app.use('/viewsapi',ViewapiRoutes);
 
-
+//CORS Handling
 app.use((req, res, next)=>
 {
     res.header('Access-Control-Allow-Origin','*');
@@ -53,6 +61,8 @@ app.use((req, res, next)=>
     }
     next();
 })
+
+//Error Handling
 app.use((req, res, next) =>
 {
     const error = new Error('Not Found'); 

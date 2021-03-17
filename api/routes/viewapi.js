@@ -1,3 +1,12 @@
+//-----------------------------------------------------
+// Title: Viewsapi
+// Author: Tunç Gürsoy
+// ID: 64528127274
+// Section: 1
+// Homework: 1
+// Description: Html interface operation class 
+//-----------------------------------------------------
+
 const express = require('express'); 
 const router = express.Router();
 const mongoose = require('mongoose');
@@ -261,7 +270,6 @@ router.delete('/delete/:id',(req, res, next) =>
 
 router.post('/delete/:id',(req, res, next) =>
 {
-    console.log('entered');
     const id = req.params.id;
    user.remove({_id:id}).exec().then(result =>
     {

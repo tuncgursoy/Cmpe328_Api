@@ -1,4 +1,11 @@
-
+//-----------------------------------------------------
+// Title: Server 
+// Author: Tunç Gürsoy
+// ID: 64528127274
+// Section: 1
+// Homework: 1
+// Description: MAin and Server class of the this application 
+//-----------------------------------------------------
 const http = require('http');
 const app = require('./app')
 const port = process.env.PORT || 8080;
